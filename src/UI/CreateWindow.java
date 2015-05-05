@@ -14,6 +14,8 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import Client.Client;
+
 @SuppressWarnings("serial")
 public class CreateWindow extends JFrame{
 
@@ -21,13 +23,23 @@ public class CreateWindow extends JFrame{
 	private Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
 	private Dimension sizeD = new Dimension();
 	private JLabel Lname, Lpassword;
+	public JTextField getTFname() {
+		return TFname;
+	}
+
+	public JPasswordField getPFpassword() {
+		return PFpassword;
+	}
+
 	private JTextField TFname;
 	private JPasswordField PFpassword;
 	private JButton Bcreate, Bcancel;
 	private JPanel centerPanel;
 	private GridLayout centerGridLayout;
+	private Controller_Create ActionController;
 	
-	public CreateWindow(){
+	public CreateWindow(Client C){
+		ActionController = new Controller_Create(C, this);
 		Init_Size();
 		Init_Position();
 		Init_Other();
@@ -65,8 +77,10 @@ public class CreateWindow extends JFrame{
 		TFname = new JTextField();
 		Lpassword = new JLabel("Password");
 		PFpassword = new JPasswordField();
-		Bcreate = new JButton("Creat");
+		Bcreate = new JButton("Create");
+		Bcreate.addActionListener(ActionController);
 		Bcancel = new JButton("Cancel");
+		Bcancel.addActionListener(ActionController);
 		
 		centerPanel.add(Lname);
 		centerPanel.add(TFname);

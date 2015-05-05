@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 
 import Client.ThreadWin;
 //===============================================
+
 @SuppressWarnings("serial")
 public class MorpionJPanel extends JPanel implements ActionListener {
 	private int nbr_O = 0;
@@ -43,7 +44,6 @@ public class MorpionJPanel extends JPanel implements ActionListener {
 		return nbr_O;
 	}
 
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		JButton localBtn = (JButton)e.getSource();
 		if (localBtn.getText() == "X"){

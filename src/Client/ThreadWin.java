@@ -8,7 +8,6 @@ public class ThreadWin implements Runnable {
 		PanCase = panCase;
 	}
 	
-	@Override
 	public void run() {
 		while(true){
 			try {

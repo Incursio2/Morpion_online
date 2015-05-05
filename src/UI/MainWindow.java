@@ -20,20 +20,20 @@ public class MainWindow extends JFrame{
 	private Container container = getContentPane();
 	private Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
 	private Dimension sizeD = new Dimension();
-	private JButton join, refresh, creat;
+	private JButton join, refresh, create;
 	private JList<String> roomSelection;
 	private JLabel room;
 	private JPanel southPanel;
 	private JPanel centerPanel;
 	private GridLayout southGridLayout;
-	private Controller ActionController;
+	private Controller_Main ActionController;
 	public MainWindow(Client C){
+		ActionController = new Controller_Main(C);
 		Init_Size();
 		Init_Position();
 		Init_Panels();
 		Init_Components();
-		Init_Other();
-		ActionController = new Controller(C);
+		Init_Other();	
 	}
 	
 	public void Lanceur(boolean b){
@@ -61,13 +61,13 @@ public class MainWindow extends JFrame{
 		join.addActionListener(ActionController);
 		refresh = new JButton("Refresh");
 		refresh.addActionListener(ActionController);
-		creat = new JButton("Creat");
-		creat.addActionListener(ActionController);
+		create = new JButton("Create");
+		create.addActionListener(ActionController);
 		roomSelection = new JList<String>();
 		room = new JLabel("Room Selection :");
 		southPanel.add(join);
 		southPanel.add(refresh);
-		southPanel.add(creat);
+		southPanel.add(create);
 		centerPanel.add(room, BorderLayout.NORTH);
 		centerPanel.add(roomSelection, BorderLayout.CENTER);
 	}

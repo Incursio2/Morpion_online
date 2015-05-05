@@ -24,9 +24,7 @@ public class CreateWindow extends JFrame{
 	private JTextField TFname;
 	private JPasswordField PFpassword;
 	private JButton Bcreate, Bcancel;
-	
 	private JPanel centerPanel;
-	//private JPanel centerPanel;
 	private GridLayout centerGridLayout;
 	
 	public CreateWindow(){
@@ -54,6 +52,7 @@ public class CreateWindow extends JFrame{
 	
 	private void Init_Other(){
 		setName("Create a new game");
+		setTitle("Create a new game");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 	
@@ -62,12 +61,12 @@ public class CreateWindow extends JFrame{
 		
 		centerGridLayout = new GridLayout(3,2,0,0);
 		centerPanel = new JPanel(centerGridLayout);
-		Lname = new JLabel("Nom");
+		Lname = new JLabel("Name");
 		TFname = new JTextField();
 		Lpassword = new JLabel("Password");
 		PFpassword = new JPasswordField();
-		Bcreate = new JButton("Créer");
-		Bcancel = new JButton("Annuler");
+		Bcreate = new JButton("Creat");
+		Bcancel = new JButton("Cancel");
 		
 		centerPanel.add(Lname);
 		centerPanel.add(TFname);

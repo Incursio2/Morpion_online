@@ -65,7 +65,7 @@ public class CreateWindow extends JFrame{
 	private void Init_Other(){
 		setName("Create a new game");
 		setTitle("Create a new game");
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 	}
 	
 	private void Init_Panels(){

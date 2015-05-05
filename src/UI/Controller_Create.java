@@ -21,6 +21,8 @@ public class Controller_Create implements ActionListener {
 		case "Create":
 			String name = createWindow.getTFname().getText();
 			char[] password = createWindow.getPFpassword().getPassword();
+			PlayWindow PW = new PlayWindow();
+			PW.Lanceur(true);
 			break;
 		case "Cancel":
 			createWindow.setVisible(false);
@@ -28,5 +30,4 @@ public class Controller_Create implements ActionListener {
 			break;
 		}
 	}
-
 }

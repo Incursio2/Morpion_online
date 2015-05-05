@@ -9,9 +9,11 @@ import java.awt.Toolkit;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
-import javax.swing.JTextPane;
+
+import Client.Client;
 
 @SuppressWarnings("serial")
 public class MainWindow extends JFrame{
@@ -19,16 +21,19 @@ public class MainWindow extends JFrame{
 	private Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
 	private Dimension sizeD = new Dimension();
 	private JButton join, refresh, creat;
-	private JTextArea roomSelection;
+	private JList<String> roomSelection;
+	private JLabel room;
 	private JPanel southPanel;
-	//private JPanel centerPanel;
+	private JPanel centerPanel;
 	private GridLayout southGridLayout;
-	public MainWindow(){
+	private Controller ActionController;
+	public MainWindow(Client C){
 		Init_Size();
 		Init_Position();
 		Init_Panels();
 		Init_Components();
 		Init_Other();
+		ActionController = new Controller(C);
 	}
 	
 	public void Lanceur(boolean b){
@@ -46,21 +51,25 @@ public class MainWindow extends JFrame{
 		setContentPane(container);
 		southGridLayout = new GridLayout(1,3,0,0);
 		southPanel = new JPanel(southGridLayout);
+		centerPanel = new JPanel(new BorderLayout());
 		container.add(southPanel, BorderLayout.SOUTH);
+		container.add(centerPanel, BorderLayout.CENTER);
 	}
 	
 	private void Init_Components(){
 		join = new JButton("Join");
-		//join.addKeyListener(l);
+		join.addActionListener(ActionController);
 		refresh = new JButton("Refresh");
-		//refresh.addKeyListener(l);
+		refresh.addActionListener(ActionController);
 		creat = new JButton("Creat");
-		//creat.addKeyListener(l);
-		roomSelection = new JTextArea();
+		creat.addActionListener(ActionController);
+		roomSelection = new JList<String>();
+		room = new JLabel("Room Selection :");
 		southPanel.add(join);
 		southPanel.add(refresh);
 		southPanel.add(creat);
-		container.add(roomSelection, BorderLayout.CENTER);
+		centerPanel.add(room, BorderLayout.NORTH);
+		centerPanel.add(roomSelection, BorderLayout.CENTER);
 	}
 	
 	private void Init_Position(){

@@ -7,7 +7,9 @@ import UI.MainWindow;
 public class Main {
 
 	public static void main(String[] args) {
-		MainWindow w = new MainWindow();
+		Client C = new Client("localhost",1237);
+		C.Launch();	
+		MainWindow w = new MainWindow(C);
 		w.Lanceur(true);
 	}
 	

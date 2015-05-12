@@ -32,15 +32,12 @@ public class PlayWindow extends JFrame {
 	
 	private void Init_PanelCase(){
 		setContentPane(container);
-		SPinfo = new JScrollPane();
-		SPinfo.setSize(100, 100);
-		SPinfo.setVisible(true);
-		TAinfo = new JTextArea();
-		TAinfo.setRows(3);
+		TAinfo = new JTextArea(3,20);
+		SPinfo = new JScrollPane(TAinfo);
+		TAinfo.setEditable(false);
 		Bquit = new JButton("quit");
 		PC = new MorpionJPanel();
 		PC.Lanceur(true);
-		SPinfo.add(TAinfo);
 		container.add(PC,BorderLayout.CENTER);
 		container.add(Bquit, BorderLayout.SOUTH);
 		container.add(SPinfo, BorderLayout.NORTH);
